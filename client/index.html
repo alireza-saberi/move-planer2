@@ -30,12 +30,18 @@
              <label>City</label>
               <input type="text" class="form-control" data-ng-model="address.city" placeholder="Montreal">
           </div>
-          <button type="submit" class="btn btn-default">Submit</button>
+          <button class="btn btn-default" ng-click="addressSearch()">Submit</button>
         </form>
       </div>
       </div>
       <div class="row">
         <h2 id="greeting" class="greeting text-center">Where do you want to live? {{address.street}} {{address.city}}</h2>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 rounded-image" >
+          <img ng-src="{{ streetviewUrl }}" class="img-responsive col-xs-12 col-md-6">
+<!--           <div id="map" class="col-xs-12 col-md-6"></div> -->
+        </div>
       </div>
     </div>
     <hr class="color-violet">
@@ -48,5 +54,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
   </body>
 </html>

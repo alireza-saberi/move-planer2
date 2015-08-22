@@ -8,3 +8,29 @@
 	color: violet;
 	
 }
+
+.rounded-image {
+	background-color: grey;
+	border-radius: 10%;
+	padding: 10px 10px 10px 10px;
+
+}
+
+img {
+	border-radius: 20%;
+	max-width: 600px;
+
+}
+
+/*iframe {
+	border-radius: 20%;
+	max-width: 600px;
+
+}*/
+
+/*#map {
+        height: 350px;
+        background-color: #CCC;
+      	border-radius: 20%;
+
+     }*/
