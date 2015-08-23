@@ -2,6 +2,7 @@
 	var moveController = function($scope, appSettings){
 		$scope.appSettings = appSettings;
 		$scope.streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=51%20sherbrook%20west,%20Montreal';
+		$scope.center = "45.5118520,-73.5698800";
 		$scope.addressSearch = function(){
 			var mapAddress = $scope.address.street + ', ' + $scope.address.city;
 			var streetviewUrl = appSettings.googleMap + mapAddress + '';

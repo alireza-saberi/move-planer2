@@ -41,7 +41,11 @@
       <div class="row">
         <div class="col-xs-12 rounded-image" >
           <img ng-src="{{ streetviewUrl }}" class="img-responsive col-xs-12 col-md-6">
-<!--           <div id="map" class="col-xs-12 col-md-6"></div> -->
+          <div id="map" class="col-xs-12 col-md-6">
+            <map center={{center}} zoom="18">
+                <marker position={{center}} title={{address.street}}></marker>
+            </map>
+          </div>
         </div>
       </div>
     </div>
