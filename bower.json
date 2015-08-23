@@ -1,0 +1,20 @@
+{
+  "name": "move-planer2",
+  "version": "0.0.0",
+  "homepage": "https://github.com/alireza-saberi/move-planer2",
+  "authors": [
+    "alireza-saberi <saberi.ar.eng@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.5",
+    "ngmap": "~1.11.5"
+  }
+}
