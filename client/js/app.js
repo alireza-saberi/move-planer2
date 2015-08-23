@@ -1,5 +1,5 @@
 (function(){
-	var app = angular.module('movePlannerApp', []);
+	var app = angular.module('movePlannerApp', ['ngMap']);
 	app.constant('appSettings', {
         title:'Move Planner 2',
         version:'2.0',
