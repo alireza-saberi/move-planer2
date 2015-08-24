@@ -20,6 +20,23 @@
     <![endif]-->
   </head>
   <body class-"ng-cloak" data-ng-controller="moveController">
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : 'Meme-maker',
+          xfbml      : true,
+          version    : 'v2.4'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div class="container">
       <div class="row jumbotron">
         <div class="col-sm-12">
@@ -80,6 +97,11 @@
                 Relevant Wikipedia Links:
               </h3>
               <hr class="color-violet">
+                 <ul class="article-list">
+                  <li ng-repeat="art in newArticleList | limitTo:7">
+                    <a ng-href="art.url">{{art.articleStr}}</a>
+                  </li>
+                </ul>
           </div>
       </div>
       <br>
@@ -99,7 +121,12 @@
       </div>
     </div>
     <hr class="color-violet">
-    <footer class="text-center"> MADE WITH <i class="fa fa-heart color-violet"></i> BY <span class="color-violet">ALAN SABERI</span>. FIND THIS ON <a href="https://github.com/alireza-saberi/move-planer2" target="_bank"><span class="color-violet">GITHUB</span></a><div>Version: {{ appSettings.version }}</div></footer>
+    <footer class="text-center"> 
+      MADE WITH <i class="fa fa-heart color-violet"></i> BY <span class="color-violet">ALAN SABERI</span>. FIND THIS ON 
+      <a href="https://github.com/alireza-saberi/move-planer2" target="_bank"><span class="color-violet">GITHUB</span></a>
+        <div>Version: {{ appSettings.version }}</div>
+        <div class="fb-like" data-href="http://127.0.0.1:3000/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+      </footer>
     <!-- AngularJS modules -->
     <script src="js/angular.min.js"></script>
     <script src="js/ng-map.min.js"></script>

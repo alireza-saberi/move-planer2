@@ -51,10 +51,18 @@
 			}).error(function(){
 				console.log('Wrong entry for New York Time!');
 			});	
-			var wikiUrl = appSettings.wiki + $scope.address.city + '&format=json&callback=wikiCallback';
+			var wikiUrl = appSettings.wiki + $scope.address.city + '&format=json&callback=JSON_CALLBACK';
 
 			$http.jsonp(wikiUrl).success(function(res){
-				console.log(res);
+				var articleList = res[1];
+				var newArticleList = new Array(articleList.length);
+			    for (var i = 0; i < articleList.length; i++) {
+                	var wikiCity = {};
+                	wikiCity.articleStr = articleList[i];
+                	wikiCity.url = 'http://en.wikipedia.org/wiki/' + wikiCity.articleStr;
+                	newArticleList[i] = wikiCity;
+            		};
+            		$scope.newArticleList = newArticleList;
 
 			}).error(function(){
 				console.log('Wrong entry for Wikipedia!');
