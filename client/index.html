@@ -16,7 +16,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+  <!-- font-awesome-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> 
   </head>
   <body class-"ng-cloak" data-ng-controller="moveController">
     <div class="container">
@@ -48,6 +49,42 @@
           </div>
         </div>
       </div>
+      <br>
+      <div class="row" ng-show="weatherPanel">
+          <div class="col-xs-12 col-sm-6 rounded-image">
+            <div class="row">
+              <div class="col-xs-6">
+                <h3>{{today.dayOfWeek}}</h3>
+                <h5>{{today.day}}-{{today.month}}-{{today.year}}<h6>
+                  <hr class="color-yellow">
+              </div>
+              <div class="col-xs-6">
+                 <i class="fa fa-sun-o fa-4x color-yellow pull-right"></i><br><br>
+                 <div class="clearfix visible-xs-block"></div>
+                <div class="pull-right"><h4>Temperature:</h4>{{ temperature.temp}} <strong>'C</strong></div>
+              </div>
+            </div>
+              <div class="row">
+                <div class="col-xs-12">
+                Pressure:{{ temperature.pressure}} hPa <br>
+                Humidity: {{ temperature.humidity}} % <br>
+                Temp Min: {{ temperature.temp_min}} 'C <br>
+                Temp Max: {{ temperature.temp_max}} 'C <br>
+                Wind Speed:{{ wind.speed}} m/sec<br>
+                Wind Direction: {{ wind.deg}} degree
+              </div>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 rounded-image">
+            XXXXX
+          </div>
+      </div>
+      <br>
+      <div class="row" ng-show="NYTimesPannel">
+        <div class="col-xs-12 rounded-image">
+        XXX
+      </div>
+      </div>
     </div>
     <hr class="color-violet">
     <footer class="text-center"> MADE WITH <i class="fa fa-heart color-violet"></i> BY <span class="color-violet">ALAN SABERI</span>. FIND THIS ON <a href="https://github.com/alireza-saberi/move-planer2" target="_bank"><span class="color-violet">GITHUB</span></a><div>Version: {{ appSettings.version }}</div></footer>
@@ -55,6 +92,7 @@
     <script src="js/angular.min.js"></script>
     <script src="js/ng-map.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/services/todayFactory.js"></script>
     <script src="js/moveController.js"></script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -22,6 +22,11 @@ img {
 
 }
 
+.color-yellow {
+	color: yellow;
+	
+}
+
 /*iframe {
 	border-radius: 20%;
 	max-width: 600px;
