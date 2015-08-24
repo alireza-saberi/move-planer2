@@ -50,7 +50,15 @@
         		$scope.newArticles = newArticles;
 			}).error(function(){
 				console.log('Wrong entry for New York Time!');
-			});			
+			});	
+			var wikiUrl = appSettings.wiki + $scope.address.city + '&format=json&callback=wikiCallback';
+
+			$http.jsonp(wikiUrl).success(function(res){
+				console.log(res);
+
+			}).error(function(){
+				console.log('Wrong entry for Wikipedia!');
+			});
 			};
 	};
 	moveController.$inject = ['$scope', 'appSettings', '$http', 'todayFacotry'];
