@@ -16,7 +16,7 @@
 				var newCenter = res.results[0].geometry.location.lat + ',' + res.results[0].geometry.location.lng;
 				$scope.center = newCenter;
 			}).error(function(){
-				console.log('wrong entry for geocoding address');
+				console.log('Wrong entry for geocoding address!');
 			});
 			var weatherUrl = appSettings.weatherAPI + $scope.address.city;
 			var weatherRes = $http.get(weatherUrl);
@@ -28,20 +28,30 @@
 				$scope.temperature = res.main;
 				$scope.wind = res.wind;
 			}).error(function(){
-				console.log('wrong entry for weather address');
+				console.log('Wrong entry for weather address!');
 			});
 			$scope.NYTimesPannel = true;
+			var nytimesUrl = appSettings.nyTimeAPI +  $scope.address.city + appSettings.nyKey;
+			var nytimesRes = $http.get(nytimesUrl);
+			nytimesRes.success(function(res){
+				var articles = res.response.docs;
+				var newArticles = new Array(articles.length);
+				//console.log(newArticles.length)
+				//console.log(articles);
+		        for (var i = 0; i < articles.length; i++) {
+             		var article = articles[i];
+             		var articleInfo = {};
+             		articleInfo.headline =  article.headline.main;
+             		articleInfo.url = article.web_url;
+             		//console.log(articleInfo.url);
+             		articleInfo.snipet = article.snippet;
+             		newArticles[i] = articleInfo;
+        			};		
+        		$scope.newArticles = newArticles;
+			}).error(function(){
+				console.log('Wrong entry for New York Time!');
+			});			
 			};
-		// function initialize() {
-		// 	var mapCanvas = angular.element($('#map'));
-		// 	var mapOptions = {
-  //     				center: new google.maps.LatLng(44.5403, -78.5463),
-  //     				zoom: 8,
-  //     				mapTypeId: google.maps.MapTypeId.ROADMAP
-  //   						}
-		// 	var map = new google.maps.Map(mapCanvas, mapOptions);
-		// }
-		// initialize();
 	};
 	moveController.$inject = ['$scope', 'appSettings', '$http', 'todayFacotry'];
 	angular.module('movePlannerApp').controller('moveController', moveController);

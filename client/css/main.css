@@ -4,13 +4,20 @@
 
 }
 
+.article {
+    list-style-type: none;
+    padding:100px;
+    border-top: 1px solid #CCC;
+
+}
+
 .color-violet {
 	color: violet;
 	
 }
 
 .rounded-image {
-	background-color: grey;
+	background-color: #CCC;
 	border-radius: 10%;
 	padding: 10px 10px 10px 10px;
 
@@ -26,6 +33,7 @@ img {
 	color: yellow;
 	
 }
+
 
 /*iframe {
 	border-radius: 20%;
