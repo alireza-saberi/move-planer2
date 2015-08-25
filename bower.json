@@ -15,6 +15,7 @@
   ],
   "devDependencies": {
     "bootstrap": "~3.3.5",
-    "ngmap": "~1.11.5"
+    "ngmap": "~1.11.5",
+    "angular-translate": "~2.7.2"
   }
 }

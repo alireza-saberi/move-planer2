@@ -1,5 +1,5 @@
 (function(){
-	var moveController = function($scope, appSettings, $http, todayFacotry){
+	var moveController = function($scope, appSettings, $http, todayFacotry, $translate){
 		$scope.appSettings = appSettings;
 		$scope.streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=51%20sherbrook%20west,%20Montreal';
 		$scope.center = "45.5118520,-73.5698800";
@@ -68,7 +68,10 @@
 				console.log('Wrong entry for Wikipedia!');
 			});
 			};
+			$scope.changeLanguage = function (key) {
+				$translate.use(key);
+  				};
 	};
-	moveController.$inject = ['$scope', 'appSettings', '$http', 'todayFacotry'];
+	moveController.$inject = ['$scope', 'appSettings', '$http', 'todayFacotry', '$translate'];
 	angular.module('movePlannerApp').controller('moveController', moveController);
 }());

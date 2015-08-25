@@ -38,23 +38,28 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
     <div class="container">
+      <div class="row ng-scope">
+        <button type="button" class="btn btn-primary ng-scope" data-ng-click="changeLanguage('en')">English</button>
+        <button type="button" class="btn btn-success ng-scope" data-ng-click="changeLanguage('fr')">Français</button>
+        <button type="button" class="btn btn-danger ng-scope" data-ng-click="changeLanguage('sp')">Espagnol</button>
+      </div>
       <div class="row jumbotron">
         <div class="col-sm-12">
         <form class="form-inline">
             <div class="form-group">
-              <label>Street</label>
+              <label translate="STREET" class="ng-scope">{{'STREET' | translate }}</label>
               <input type="text" class="form-control" data-ng-model="address.street" placeholder="51 Sherbrooke West">
              </div>
           <div class="form-group">
-             <label>City</label>
+             <label translate="CITY" class="ng-scope">{{'CITY' | translate }}</label>
               <input type="text" class="form-control" data-ng-model="address.city" placeholder="Montreal">
           </div>
-          <button class="btn btn-default" ng-click="addressSearch()">Submit</button>
+          <button class="btn btn-default" ng-click="addressSearch()" translate="SUBMIT" class="ng-scope">{{'SUBMIT' | translate }}</button>
         </form>
       </div>
       </div>
       <div class="row">
-        <h2 id="greeting" class="greeting text-center">Where do you want to live? {{address.street}} {{address.city}}</h2>
+        <h2 id="greeting" class="greeting text-center ng-scope" translate="WHERE">{{'WHERE' | translate }} {{address.street}} {{address.city}}</h2>
       </div>
       <div class="row">
         <div class="col-xs-12 rounded-image" >
@@ -76,25 +81,27 @@
                   <hr class="color-yellow">
               </div>
               <div class="col-xs-6">
-                 <i class="fa fa-sun-o fa-4x color-yellow pull-right"></i><br><br>
-                 <div class="clearfix visible-xs-block"></div>
-                <div class="pull-right"><h4>Temperature:</h4>{{ temperature.temp}} <strong>'C</strong></div>
+                 <i class="fa fa-sun-o fa-4x color-yellow pull-right"></i>
+<!--                  <div class="clearfix visible-xs-block"></div> -->
+                <p class="pull-right ng-scope pull-right">
+                  <h4>{{'TEMP' | translate }}</h4>
+                  {{ temperature.temp}} <strong>'C</strong></p>
               </div>
             </div>
               <div class="row">
-                <div class="col-xs-12">
-                Pressure:{{ temperature.pressure}} hPa <br>
-                Humidity: {{ temperature.humidity}} % <br>
-                Temp Min: {{ temperature.temp_min}} 'C <br>
-                Temp Max: {{ temperature.temp_max}} 'C <br>
-                Wind Speed:{{ wind.speed}} m/sec<br>
-                Wind Direction: {{ wind.deg}} degree
+                <div class="col-xs-12 ng-scope">
+                <p class="ng-scope" translate="PRESSURE">{{'PRESSURE' | translate }}:{{ temperature.pressure}} hPa </p>
+                <p class="ng-scope" translate="HUMID">{{'HUMID' | translate }}: {{ temperature.humidity}} % </p>
+                <p class="ng-scope" translate="TEMPMIN">{{'TEMPMIN' | translate }}: {{ temperature.temp_min}} 'C </p>
+                <p class="ng-scope" translate="TEMPMAX">{{'TEMPMAX' | translate }}: {{ temperature.temp_max}} 'C </p>
+                <p class="ng-scope" translate="WINDSPEED">{{'WINDSPEED' | translate }}:{{ wind.speed}} m/sec </p>
+                <p class="ng-scope" translate="WINDDIRECTION">{{'WINDDIRECTION' | translate }}: {{ wind.deg}} degree </p>
               </div>
               </div>
           </div>
           <div class="col-xs-12 col-sm-5 col-sm-offset-1 rounded-image">
-              <h3 class="text-center">
-                Relevant Wikipedia Links:
+              <h3 class="text-center ng-scope">
+                {{'RWPLINKS' | translate }}:
               </h3>
               <hr class="color-violet">
                  <ul class="article-list">
@@ -107,7 +114,7 @@
       <br>
       <div class="row" ng-show="NYTimesPannel">
         <div class="col-xs-12 rounded-image">
-        <h3 class="text-center">
+        <h3 class="text-center ng-scope">
           New York Times Articles
         </h3>
         <br class="color-violet">
@@ -130,6 +137,7 @@
     <!-- AngularJS modules -->
     <script src="js/angular.min.js"></script>
     <script src="js/ng-map.min.js"></script>
+    <script src="js/angular-translate.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services/todayFactory.js"></script>
     <script src="js/moveController.js"></script>
